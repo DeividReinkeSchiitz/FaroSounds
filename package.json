@@ -3,7 +3,6 @@
   "dependencies": {
     "@discordjs/opus": "discordjs/opus",
     "discord.js": "^12.1.1",
-    "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.2.5",
     "node-opus": "^0.3.3",
     "opusscript": "^0.0.8"

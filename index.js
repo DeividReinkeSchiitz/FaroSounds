@@ -1,12 +1,13 @@
-require("dotenv/config");
+process.title = "faro_sounds";
 
 const fs = require("fs");
 const path = require("path");
 
-const { Client, MessageEmbed } = require("discord.js");
+const {Client, MessageEmbed} = require("discord.js");
 const client = new Client();
 
-const musicFolder = "music";
+
+const musicFolder = __dirname + "/" + "music"
 const signal = "-";
 const commands = fs
   .readdirSync(musicFolder)
@@ -47,10 +48,11 @@ async function addAudios(message, command) {
 
         dispatcher.setVolume(1);
 
-        dispatcher.on("start", () => {});
+        dispatcher.on("start", () => {
+        });
 
-       timeoutID = setTimeout(async () => {
-        await message.member.voice.channel.leave()
+        timeoutID = setTimeout(async () => {
+          await message.member.voice.channel.leave()
         }, 1000 * 60 * 2);
 
       } catch (error) {
@@ -63,12 +65,11 @@ async function addAudios(message, command) {
 }
 
 
-
 const callCommands = new MessageEmbed()
   .setColor("#050754")
   .setTitle("TOME!")
-  .addFields({ name: "Comandos", value: commands });
+  .addFields({name: "Comandos", value: commands});
 /*     embed.setAuthor("created by: Deivid Reinke Schiitz"); */
 
 const token = process.env.TOKEN;
-client.login(token);
+client.login("MTA0MDA3NjQwNzM4NjE0NDgyOQ.GLleOu.znKOLmG5aQ0WbdAnxJmkRSqS_r99Xjco28Tdsk");
